@@ -1,0 +1,17 @@
+{
+  "extends": "default.json",
+  "environment": "production",
+  "logging": {
+    "level": "warn",
+    "outputs": ["console", "file"]
+  },
+  "llm": {
+    "maxTokens": 4096,
+    "temperature": 0.2,
+    "retryAttempts": 5
+  },
+  "features": {
+    "enableTelemetry": true,
+    "enableAnalytics": true
+  }
+}

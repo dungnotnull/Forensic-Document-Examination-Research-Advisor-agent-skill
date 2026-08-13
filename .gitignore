@@ -1,0 +1,43 @@
+# Claude Code & Development
+.claude/
+node_modules/
+dist/
+build/
+*.log
+
+# Testing & Evals
+.workspace/
+*-workspace/
+*.coverage
+*.bench
+
+# Environment & Config
+.env
+.env.local
+.env.*.local
+config/secrets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Temporary
+*.tmp
+*.temp
+.tmp/
+.cache/

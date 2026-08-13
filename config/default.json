@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "environment": "development",
+  "skill": {
+    "name": "forensic-document-examination-advisor",
+    "version": "1.0.0",
+    "description": "Professional-support and educational skill for forensic document examination methodology"
+  },
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-opus-4-7",
+    "maxTokens": 8192,
+    "temperature": 0.3,
+    "timeoutMs": 120000,
+    "retryAttempts": 3,
+    "retryDelayMs": 1000
+  },
+  "logging": {
+    "level": "info",
+    "format": "structured",
+    "outputs": ["console", "file"],
+    "directory": "logs",
+    "maxFiles": 10,
+    "maxSize": "10M"
+  },
+  "features": {
+    "enableTelemetry": false,
+    "enableAnalytics": false,
+    "enableAuditLog": true,
+    "enableGracefulFallbacks": true,
+    "enableMethodologyValidation": true,
+    "enableDisclaimerEnforcement": true
+  },
+  "methodologies": {
+    "astmStandards": {
+      "enabled": true,
+      "reference": "references/astm-standards.md"
+    },
+    "swgdocStandards": {
+      "enabled": true,
+      "reference": "references/swgdoc-standards.md"
+    },
+    "classVsIndividualCharacteristics": {
+      "enabled": true,
+      "reference": "references/class-vs-individual-characteristics.md"
+    },
+    "naturalVariationAnalysis": {
+      "enabled": true,
+      "reference": "references/natural-variation-analysis.md"
+    },
+    "nas2009Critique": {
+      "enabled": true,
+      "reference": "references/nas-2009-critique.md"
+    },
+    "esdaMethodology": {
+      "enabled": true,
+      "reference": "references/esda-methodology.md"
+    },
+    "chainOfCustody": {
+      "enabled": true,
+      "reference": "references/chain-of-custody.md"
+    }
+  },
+  "hooks": {
+    "beforeExecution": {
+      "enabled": true,
+      "handlers": ["validateInput", "enforceScope", "initializeContext"]
+    },
+    "afterExecution": {
+      "enabled": true,
+      "handlers": ["validateOutput", "enforceDisclaimer", "logMetrics"]
+    },
+    "onError": {
+      "enabled": true,
+      "handlers": ["logError", "gracefulFallback", "notifyMonitoring"]
+    }
+  },
+  "tools": {
+    "methodologyExecutor": {
+      "enabled": true,
+      "timeoutMs": 30000
+    },
+    "referenceResolver": {
+      "enabled": true,
+      "cacheEnabled": true,
+      "cacheTtlSeconds": 3600
+    },
+    "outputFormatter": {
+      "enabled": true,
+      "formats": ["structured", "checklist", "memo", "report"]
+    },
+    "disclaimerManager": {
+      "enabled": true,
+      "mandatory": true
+    }
+  },
+  "validation": {
+    "inputValidation": {
+      "enabled": true,
+      "strictMode": true
+    },
+    "outputValidation": {
+      "enabled": true,
+      "checkMethodologyApplication": true,
+      "checkDisclaimerPresence": true,
+      "checkScopeCompliance": true
+    }
+  },
+  "testing": {
+    "evalDirectory": "evals",
+    "coverageThreshold": 80,
+    "performanceThresholdMs": 5000
+  }
+}
